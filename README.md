@@ -23,7 +23,7 @@ This script defines the class Expense, which we will use in our expense_tracker.
 It has an init function and a repr function.
 
 ### expense_tracker.ipynb
-This is the "main" script of the project. I wrote it in a notebook because I feel more comfortable using this format. This script contains 3 main functions:
+This is the "main" script of the project. I wrote it in a notebook because I feel more comfortable using this format, but I did include a .py file containing the same code in this repository, just in case. This script contains 3 main functions:
 - `get_user_expense()`: gets the user's expenses (product, price and category of the product)  using `input`. It sets a list of categories for the user to select from (Food, Home, Work, Fun and Miscellaneous) and it stores the input data into a variable.
 - `save_expense`: saves the data (product, price, category) into a csv file.
 - `summarise_expenses`: uses the csv file to calculate how much the user spent by category, how much they spent in total and how much they have left in their budget.
