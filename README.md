@@ -12,7 +12,7 @@ Here are the requirements of the app:
 - The app will summarise the totals of the expenses
 - The app will show the remaining budget
 
-## Process
+## Summary of the project
 The project contains two scripts:
 - expense.py
 - expense_tracker.ipynb
@@ -27,3 +27,7 @@ This is the "main" script of the project. I wrote it in a notebook because I fee
 - `get_user_expense()`: gets the user's expenses (product, price and category of the product)  using `input`. It sets a list of categories for the user to select from (Food, Home, Work, Fun and Miscellaneous) and it stores the input data into a variable.
 - `save_expense`: saves the data (product, price, category) into a csv file.
 - `summarise_expenses`: uses the csv file to calculate how much the user spent by category, how much they spent in total and how much they have left in their budget.
+
+## Conclusion
+This was quite a rewarding project, since it was fairly easy and it helped me get more familiar with Python. I will likely do more of these, because it was really helpful; although it wasn't exactly challenging (as it was a beginner project), it gave me practice and it allowed me to focus just on Python for a few hours.
+I might try a Retrieval Augmented Generation (RAG) project, and some NLP-related projects next!
