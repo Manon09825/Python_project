@@ -22,11 +22,12 @@ It also contains a csv file in which the expenses are saved.
 This script defines the class Expense, which we will use in our expense_tracker.py script.
 It has an init function and a repr function.
 
-### expense_tracker.ipynb
-This is the "main" script of the project. I wrote it in a notebook because I feel more comfortable using this format, but I did include a .py file containing the same code in this repository, just in case. This script contains 3 main functions:
+### expense_tracker.py
+This is the "main" script of the project. It contains 4 functions:
 - `get_user_expense()`: gets the user's expenses (product, price and category of the product)  using `input`. It sets a list of categories for the user to select from (Food, Home, Work, Fun and Miscellaneous) and it stores the input data into a variable.
 - `save_expense`: saves the data (product, price, category) into a csv file.
 - `summarise_expenses`: uses the csv file to calculate how much the user spent by category, how much they spent in total and how much they have left in their budget.
+- 28/12/25: I added a function `reset_file` that allows the user to say whether or not they want to clear the file before entering their new expense or if they would like to add the new data to the already existing file. If the user enters "no", the `save_expense` function opens the expenses.csv file with "a" and the new data gets added at the end of the existing file, and if the user enters "yes", `save_expense` opens the expenses.csv file with "w", which rewrites the file with the new data. I also added a few lines in `main` that ask the user to input his budget for the month, using the datetime module.
 
 ## Conclusion
 This was quite a rewarding project, since it was fairly easy and it helped me get more familiar with Python. I will likely do more of these, because it was really helpful; although it wasn't exactly challenging (as it was a beginner project), it gave me practice and it allowed me to focus just on Python for a few hours.
