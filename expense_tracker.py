@@ -5,10 +5,32 @@ import datetime
 def main():
     print(f"Running Expense Tracker!")
     expense_file_path = "expenses.csv"
-    budget = 930
+    now = datetime.datetime.now()
+
+    months = {
+        1: "janvier",
+        2: "février",
+        3: "mars",
+        4: "avril",
+        5: "mai",
+        6: "juin",
+        7: "juillet",
+        8: "août",
+        9: "septembre",
+        10: "octobre",
+        11: "novembre",
+        12: "décembre"
+    }
+
+    month = now.month
+    mois = months[month]
+    budget = int(input(f"Quel est votre budget pour le mois de {mois}?"))
 
     # Get user input for expense
     expense = get_user_expense()
+
+    # Reset the file
+    reset_file(expense_file_path)
 
     # Write their expense to a file
     save_expense(expense, expense_file_path)
@@ -46,12 +68,21 @@ def get_user_expense():
         else:
             print("Category not within range. Please try again.")
 
-
-
+def reset_file(expense_file_path):
+    response =input("Would you like to clear the file before entering your data ? Yes/No: ")
+    if response == "No" or response == "no":
+        global opening_mode
+        opening_mode = "a"
+    elif response == "Yes" or response == "yes":
+        opening_mode = "w"
+    else:
+        print("Sorry, you must only answer with 'Yes' or 'No'. Please try again.")
+        reset_file(expense_file_path)
 
 def save_expense(expense:Expense, expense_file_path):
     print(f"Saving User Expense: {expense} to {expense_file_path}")
-    with open(expense_file_path, "a") as f:
+    global opening_mode
+    with open(expense_file_path, opening_mode) as f:
         f.write(f"{expense.name},{expense.category},{expense.amount}\n")
 
 def summarise_expenses(expense_file_path, budget):
@@ -100,7 +131,7 @@ def summarise_expenses(expense_file_path, budget):
     # Calculating the daily budget
     daily_budget = remaining_budget/remaining_days
     print(f"Budget per day: {daily_budget:.2f}€")
-
+        
 
 
 if __name__ == "__main__":
